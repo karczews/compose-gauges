@@ -25,3 +25,4 @@ rootProject.name = "compose-gauges"
 include(":lib")
 include(":screenshot-tests")
 include(":demo-shared")
+include(":demo-android")
