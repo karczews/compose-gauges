@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "io.github.karczews.gauges.demo"
+    namespace = "io.github.karczews.gauges.screenshots"
     compileSdk {
         version = release(libs.versions.android.compileSdk.get().toInt())
     }
 
     defaultConfig {
-        applicationId = "io.github.karczews.gauges.demo"
+        applicationId = "io.github.karczews.gauges.screenshots"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1

@@ -23,4 +23,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "compose-gauges"
 include(":lib")
-include(":app")
+include(":screenshot-tests")
