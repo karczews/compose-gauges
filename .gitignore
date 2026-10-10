@@ -1,27 +1,56 @@
-# Compiled class file
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Kotlin
+.kotlin/
 *.class
 
-# Log file
+# Local configuration (SDK path, signing, credentials)
+local.properties
+*.jks
+*.keystore
+*.gpg
+
+# Android
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+output-metadata.json
+google-services.json
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Xcode / iOS
+xcuserdata/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+iosApp/Podfile.lock
+iosApp/Pods/
+
+# Kotlin/JS & Wasm (keep kotlin-js-store/ lock files committed)
+node_modules/
+
+# Logs, crash dumps, profiling
 *.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+*.hprof
 hs_err_pid*
 replay_pid*
 
-# Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
-.kotlin/
+# OS
+.DS_Store
+Thumbs.db
