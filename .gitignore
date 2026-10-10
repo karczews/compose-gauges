@@ -54,3 +54,6 @@ replay_pid*
 # OS
 .DS_Store
 Thumbs.db
+
+# Session docs (brainstorming specs, implementation plans)
+docs/superpowers/
