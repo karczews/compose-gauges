@@ -5,7 +5,12 @@ A collection of gauge components for Compose Multiplatform.
 | Module | Description |
 |--------|-------------|
 | `lib`  | The published library (`io.github.karczews:compose-gauges`). Targets Android, JVM (desktop), iOS (`iosArm64`, `iosSimulatorArm64`) and Wasm (browser). |
-| `app`  | Android demo app for the gauges. It also hosts the screenshot tests. |
+| `demo-shared`  | Unpublished gallery UI shared by all demo runners. Add new gauge demos here. |
+| `demo-android`  | Android gallery app. |
+| `demo-desktop`  | Desktop (JVM) gallery app. |
+| `demo-web`  | Web (wasmJs) gallery app. |
+| `iosApp/`  | Xcode wrapper that shows the gallery on iOS. Open in Xcode and run. |
+| `screenshot-tests`  | Android module hosting the screenshot tests (not published). |
 
 ## Gauges
 
@@ -30,8 +35,11 @@ Colors can be customised with `SpeedGaugeDefaults.colors(...)`.
 ## Building
 
 ```sh
-./gradlew :lib:allTests          # library unit tests on every target
-./gradlew :app:assembleDebug      # demo app
+./gradlew :lib:allTests                    # library unit tests on every target
+./gradlew :demo-android:assembleDebug      # Android gallery
+./gradlew :demo-desktop:run                # desktop gallery (opens a window)
+./gradlew :demo-web:wasmJsBrowserDevelopmentRun  # web gallery (serves locally)
+# iOS gallery: open iosApp/ in Xcode and run
 ```
 
 ## Screenshot tests

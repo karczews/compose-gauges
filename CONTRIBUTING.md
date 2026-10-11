@@ -13,8 +13,8 @@ commit message convention used in this repository.
 ## Before opening a pull request
 
 ```sh
-./gradlew :lib:allTests                          # library unit tests on every target
-./gradlew :app:assembleDebug                     # demo app builds
+./gradlew :lib:allTests                         # library unit tests on every target
+./gradlew :demo-android:assembleDebug           # gallery app builds
 ./gradlew testDebugScreenshotTestDefaultTestSuite # screenshots match the references
 ```
 
@@ -26,7 +26,8 @@ the same commit as the change that caused them:
 ```
 
 New gauges go in their own package under `lib/src/commonMain/kotlin/io/github/karczews/gauges/`,
-and need a demo in `app` plus `@PreviewTest` screenshot tests in `app/src/screenshotTest/`.
+and need a `GaugeDemo` in `demo-shared` plus `@PreviewTest` screenshot tests in
+`screenshot-tests/src/screenshotTest/`.
 
 ## Commit messages
 
@@ -68,8 +69,9 @@ A scope is optional. When used, name the area that changed:
 
 - a gauge, e.g. `speed-gauge`
 - `lib`, for library-wide changes
-- `app`, for the demo app
+- `demo`, for the gallery demo
 - `screenshot`, for the screenshot test setup
+- `screenshots`, for the screenshot test setup
 
 ### Breaking changes
 
