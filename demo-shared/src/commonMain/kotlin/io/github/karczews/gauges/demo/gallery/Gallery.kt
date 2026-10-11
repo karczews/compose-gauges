@@ -15,6 +15,7 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -26,7 +27,7 @@ public fun gaugeDemos(): List<GaugeDemo> = listOf(SpeedGaugeDemo)
 @Composable
 public fun Gallery(modifier: Modifier = Modifier) {
     var selectedId by rememberSaveable { mutableStateOf<String?>(null) }
-    val demos = gaugeDemos()
+    val demos = remember { gaugeDemos() }
     MaterialTheme(colorScheme = darkColorScheme()) {
         val selected = demos.firstOrNull { it.id == selectedId }
         if (selected == null) {

@@ -46,7 +46,6 @@ public object SpeedGaugeDemo : GaugeDemo {
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
         ) {
             SpeedGauge(
                 speedKmh = speed,
