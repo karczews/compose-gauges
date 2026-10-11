@@ -10,7 +10,7 @@
         2001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
         2002 /* iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosApp.swift; sourceTree = "<group>"; };
         2003 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-        3001 /* iosApp */ = {isa = PBXGroup; children = (2001 /* ContentView.swift */, 2002 /* iosApp.swift */, 3002 /* Products */); path = iosApp; sourceTree = "<group>"; };
+        3001 /* iosApp */ = {isa = PBXGroup; children = (2001 /* ContentView.swift */, 2002 /* iosApp.swift */); path = iosApp; sourceTree = "<group>"; };
         3002 /* Products */ = {isa = PBXGroup; children = (2003 /* iosApp.app */); name = Products; sourceTree = "<group>"; };
         3000 = {isa = PBXGroup; children = (3001 /* iosApp */, 3002 /* Products */); sourceTree = "<group>"; };
         4001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (1001 /* ContentView.swift in Sources */, 1002 /* iosApp.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
