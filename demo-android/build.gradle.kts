@@ -31,6 +31,15 @@ android {
     buildFeatures {
         compose = true
     }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
+}
+
+androidComponents {
+    beforeVariants { variantBuilder ->
+        (variantBuilder as com.android.build.api.variant.HasUnitTestBuilder).enableUnitTest = true
+    }
 }
 
 dependencies {

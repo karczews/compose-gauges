@@ -32,6 +32,7 @@ android {
         compose = true
     }
     testOptions {
+        unitTests.isIncludeAndroidResources = true
         // The KMP Android library target has no screenshot test suite DSL yet, so the
         // library's gauges are screenshot-tested from here.
         screenshotTests.create("screenshotTest") {
@@ -52,4 +53,12 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.compose.ui.tooling.preview)
     debugImplementation(libs.compose.ui.tooling)
+}
+
+// Compose Preview (AGP 9.5+) creates generate*ComposePreviewRunfiles per variant and
+// hard-fails sync if a variant has no unit-test component. Re-enable for release.
+androidComponents {
+    beforeVariants { variantBuilder ->
+        (variantBuilder as com.android.build.api.variant.HasUnitTestBuilder).enableUnitTest = true
+    }
 }
