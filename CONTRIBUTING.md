@@ -13,9 +13,11 @@ commit message convention used in this repository.
 ## Before opening a pull request
 
 ```sh
-./gradlew :lib:allTests                         # library unit tests on every target
-./gradlew :demo-android:assembleDebug           # gallery app builds
-./gradlew testDebugScreenshotTestDefaultTestSuite # screenshots match the references
+./gradlew :lib:allTests                                      # library unit tests on every target
+./gradlew :demo-android:assembleDebug                        # gallery app builds
+./gradlew :demo-desktop:build                                # desktop gallery app builds
+./gradlew :demo-web:compileDevelopmentExecutableKotlinWasmJs # web gallery app builds
+./gradlew testDebugScreenshotTestDefaultTestSuite            # screenshots match the references
 ```
 
 If you changed how a gauge looks on purpose, regenerate the reference images and commit them in
