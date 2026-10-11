@@ -2,11 +2,14 @@ package io.github.karczews.gauges.demo.gallery
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -39,29 +42,96 @@ public object SpeedGaugeDemo : GaugeDemo {
         var speed by rememberSaveable { mutableFloatStateOf(90f) }
         var outsideTempC by rememberSaveable { mutableStateOf("21°C") }
         var tripValue by rememberSaveable { mutableStateOf("128.4") }
-        Column(
+        BoxWithConstraints(
             modifier = modifier
                 .fillMaxSize()
-                .background(Color.Black)
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .background(Color.Black),
         ) {
-            SpeedGauge(
-                speedKmh = speed,
-                modifier = Modifier.fillMaxWidth(),
-                outsideTempC = outsideTempC,
-                tripValue = tripValue,
-            )
+            // Wide (desktop/web) windows get a side-by-side layout so the
+            // square gauge stops growing with the window width. The gauge
+            // width is derived from both constraints so shrinking the browser
+            // window shrinks the gauge instead of pushing content off-screen.
+            if (maxWidth >= 860.dp) {
+                val gaugeWidth = minOf(
+                    (maxWidth - 80.dp) / 2,
+                    maxHeight - 80.dp,
+                    620.dp,
+                ).coerceAtLeast(200.dp)
+                Row(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(24.dp),
+                    horizontalArrangement = Arrangement.spacedBy(
+                        32.dp,
+                        Alignment.CenterHorizontally,
+                    ),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    SpeedGauge(
+                        speedKmh = speed,
+                        modifier = Modifier.width(gaugeWidth),
+                        outsideTempC = outsideTempC,
+                        tripValue = tripValue,
+                    )
+                    Controls(
+                        speed = speed,
+                        onSpeedChange = { speed = it },
+                        outsideTempC = outsideTempC,
+                        onOutsideTempChange = { outsideTempC = it },
+                        tripValue = tripValue,
+                        onTripValueChange = { tripValue = it },
+                        modifier = Modifier.widthIn(max = 420.dp),
+                    )
+                }
+            } else {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    SpeedGauge(
+                        speedKmh = speed,
+                        modifier = Modifier.fillMaxWidth().widthIn(max = 560.dp),
+                        outsideTempC = outsideTempC,
+                        tripValue = tripValue,
+                    )
+                    Controls(
+                        speed = speed,
+                        onSpeedChange = { speed = it },
+                        outsideTempC = outsideTempC,
+                        onOutsideTempChange = { outsideTempC = it },
+                        tripValue = tripValue,
+                        onTripValueChange = { tripValue = it },
+                        modifier = Modifier.fillMaxWidth().widthIn(max = 560.dp),
+                    )
+                }
+            }
+        }
+    }
+
+    @Composable
+    private fun Controls(
+        speed: Float,
+        onSpeedChange: (Float) -> Unit,
+        outsideTempC: String,
+        onOutsideTempChange: (String) -> Unit,
+        tripValue: String,
+        onTripValueChange: (String) -> Unit,
+        modifier: Modifier = Modifier,
+    ) {
+        Column(modifier = modifier) {
             Text(
                 text = "${speed.toInt()} km/h",
                 color = Color.White,
                 fontSize = 20.sp,
-                modifier = Modifier.padding(top = 16.dp),
+                modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 16.dp),
             )
             Slider(
                 value = speed,
-                onValueChange = { speed = it },
+                onValueChange = onSpeedChange,
                 valueRange = 0f..SpeedGaugeDefaults.MAX_SPEED_KMH,
                 modifier = Modifier.padding(horizontal = 24.dp),
             )
@@ -71,14 +141,14 @@ public object SpeedGaugeDemo : GaugeDemo {
             ) {
                 OutlinedTextField(
                     value = outsideTempC,
-                    onValueChange = { outsideTempC = it },
+                    onValueChange = onOutsideTempChange,
                     label = { Text("Outside") },
                     singleLine = true,
                     modifier = Modifier.weight(1f),
                 )
                 OutlinedTextField(
                     value = tripValue,
-                    onValueChange = { tripValue = it },
+                    onValueChange = onTripValueChange,
                     label = { Text("Trip") },
                     singleLine = true,
                     modifier = Modifier.weight(1f),
