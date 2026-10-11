@@ -54,8 +54,8 @@ android.experimental.testSuiteSupport=true
 ```
 
 The KMP Android library plugin (`com.android.kotlin.multiplatform.library`) does not offer the
-`screenshotTests` DSL yet, so the suite is declared in `app/build.gradle.kts` and renders the
-library's composables. Tests live in `app/src/screenshotTest/kotlin/`. Annotate a `@Composable`
+`screenshot-tests` DSL yet, so the suite is declared in `screenshot-tests/build.gradle.kts` and renders the
+library's composables. Tests live in `screenshot-tests/src/screenshotTest/kotlin/`. Annotate a `@Composable`
 with `@PreviewTest` plus a regular `@Preview`:
 
 ```kotlin
@@ -75,10 +75,10 @@ fun SpeedGaugeCruisingPreview() {
 ./gradlew testDebugScreenshotTestDefaultTestSuite
 ```
 
-Reference images are stored under `app/src/screenshotTestDefaultDebug/reference/` and tracked with
+Reference images are stored under `screenshot-tests/src/screenshotTestDefaultDebug/reference/` and tracked with
 Git LFS (run `git lfs install` once). Commit them together with the test that produces them. If a
 comparison fails, the HTML report at
-`app/build/reports/tests/testDebugScreenshotTestDefaultTestSuite/index.html` shows the expected
+`screenshot-tests/build/reports/tests/testDebugScreenshotTestDefaultTestSuite/index.html` shows the expected
 image, the actual one, and the diff.
 
 ## Publishing
