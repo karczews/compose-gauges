@@ -54,7 +54,7 @@ android.experimental.testSuiteSupport=true
 ```
 
 The KMP Android library plugin (`com.android.kotlin.multiplatform.library`) does not offer the
-`screenshot-tests` DSL yet, so the suite is declared in `screenshot-tests/build.gradle.kts` and renders the
+`screenshotTests` DSL yet, so the suite is declared in `screenshot-tests/build.gradle.kts` and renders the
 library's composables. Tests live in `screenshot-tests/src/screenshotTest/kotlin/`. Annotate a `@Composable`
 with `@PreviewTest` plus a regular `@Preview`:
 
