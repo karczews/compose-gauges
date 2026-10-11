@@ -1,0 +1,29 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 77;
+    objects = {
+        1001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2001 /* ContentView.swift */; };
+        1002 /* iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2002 /* iosApp.swift */; };
+        2001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+        2002 /* iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosApp.swift; sourceTree = "<group>"; };
+        2003 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        3001 /* iosApp */ = {isa = PBXGroup; children = (2001 /* ContentView.swift */, 2002 /* iosApp.swift */, 3002 /* Products */); path = iosApp; sourceTree = "<group>"; };
+        3002 /* Products */ = {isa = PBXGroup; children = (2003 /* iosApp.app */); name = Products; sourceTree = "<group>"; };
+        3000 = {isa = PBXGroup; children = (3001 /* iosApp */, 3002 /* Products */); sourceTree = "<group>"; };
+        4001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (1001 /* ContentView.swift in Sources */, 1002 /* iosApp.swift in Sources */); runOnlyForDeploymentPostprocessing = 0; };
+        4002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+        4003 /* Compile Kotlin Framework */ = {isa = PBXShellScriptBuildPhase; buildActionMask = 2147483647; files = (); inputPaths = (); name = "Compile Kotlin Framework"; outputPaths = ("$(BUILT_PRODUCTS_DIR)/DemoShared.framework"); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/sh; shellScript = "cd \"$SRCROOT/..\" && ./gradlew :demo-shared:embedAndSignAppleFrameworkForXcode"; };
+        5001 /* iosApp */ = {isa = PBXNativeTarget; buildConfigurationList = 6002 /* Build configuration list for PBXNativeTarget "iosApp" */; buildPhases = (4003 /* Compile Kotlin Framework */, 4001 /* Sources */, 4002 /* Frameworks */); buildRules = (); dependencies = (); name = iosApp; packageProductDependencies = (); productName = iosApp; productReference = 2003 /* iosApp.app */; productType = "com.apple.product-type.application"; };
+        6000 /* Project object */ = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 1700; TargetAttributes = {5001 /* iosApp */ = {CreatedOnToolsVersion = 17.0; }; }; }; buildConfigurationList = 6001 /* Build configuration list for PBXProject "iosApp" */; compatibilityVersion = "Xcode 16.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en); mainGroup = 3000; targets = (5001 /* iosApp */); };
+        6001 /* Build configuration list for PBXProject "iosApp" */ = {isa = XCConfigurationList; buildConfigurations = (7001 /* Debug */, 7002 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+        6002 /* Build configuration list for PBXNativeTarget "iosApp" */ = {isa = XCConfigurationList; buildConfigurations = (7003 /* Debug */, 7004 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+        7001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {}; name = Debug; };
+        7002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {}; name = Release; };
+        7003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = "Compose Gauges"; IPHONEOS_DEPLOYMENT_TARGET = 15.0; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = "io.github.karczews.gauges.demo.ios"; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Debug; };
+        7004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = "Compose Gauges"; IPHONEOS_DEPLOYMENT_TARGET = 15.0; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = "io.github.karczews.gauges.demo.ios"; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1,2"; }; name = Release; };
+    };
+    rootObject = 6000 /* Project object */;
+}
